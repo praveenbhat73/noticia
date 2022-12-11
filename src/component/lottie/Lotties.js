@@ -1,6 +1,6 @@
 import React from 'react';
 import Lottie from 'react-lottie';
-import animationData from './news.json';
+import animationData from './88502-reading-newspaper-on-chair.json';
 import useStyles from "./styles"
 const Lotties=()=>{
   const classes = useStyles();

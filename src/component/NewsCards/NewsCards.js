@@ -7,8 +7,8 @@ import useStyles from "./styles"
 const infoCards = [
   {title: 'Latest News', text: 'Give me the latest news' },
   {title: 'News by Categories', info: 'Business, Entertainment, General, Health, Science, Sports, Technology', text: 'Give me the latest {categories} news' },
-  {title: 'News by Terms', info: 'NFT,Stock,Covid,Smartphones...', text: 'Give me the {Name of Terms}' },
-  {title: 'News by Sources', info: 'CNN, Wired, BBC News, Time, IGN, Buzzfeed, ABC News...', text: 'Give me the news from CNN' },
+  {title: 'News by Terms', info: 'NFT,Stock,Covid,Smartphones...', text: 'Give me  {Name of Terms}' },
+  {title: 'News by Sources', info: 'CNN, Wired, BBC News, Time, IGN, Buzzfeed, ABC News...', text: 'Give me the news from {sources}' },
 ];
 
 
