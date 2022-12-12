@@ -18,11 +18,13 @@ export default makeStyles({
         display: "flex",
         flexDirection: "column",
         justifyContent: "space-between",
-        borderBottom: "10px solid white",
+        borderBottom: "10px solid transparent",
         color:"white",
       },
-      activeCard: {
+      active: {
         borderBottom: "10px solid white",
+       
+      
       },
       grid: {
         display: "flex",
@@ -59,6 +61,11 @@ export default makeStyles({
         padding:"5px",
         border:"1px solid gray",
         color:"lightgray"
+      },
+      index:{
+        color:"lightgray",
+        fontSize:"20px",
+       fontWeight:"lighter"
       }
 
 })

@@ -1,6 +1,6 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-export default makeStyles({
+export default makeStyles((theme)=>({
     container:{
         padding: "0 5%",
         width: "100%",
@@ -46,9 +46,18 @@ export default makeStyles({
         color:"white"
       },
       info:{
-        color:"gray"
+        color:"gray",
+        [theme.breakpoints.down('sm')]: {
+          fontSize:"16px"
+          // marginTop:'20px',
+        },
+
       },
       text:{
-        color:"lightgray"
+        color:"lightgray",
+        [theme.breakpoints.down('md')]: {
+          fontSize:"16px"
+          // marginTop:'20px',
+        },
       }
-})
+}))

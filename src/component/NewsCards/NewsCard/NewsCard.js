@@ -1,10 +1,26 @@
-import React from 'react'
+import React, { createRef, useEffect, useState } from 'react'
 import {Card,CardActions,CardActionArea,CardContent,CardMedia,Button,Typography,} from "@material-ui/core";
 import useStyles from "./styles"
-const NewsCard = ({article:{ description, publishedAt, source, title, url, urlToImage},i}) => {
+import classNames from 'classnames';
+//create ref create new ref but never stores its value after re render but useref does it both can be used across different components
+const NewsCard = ({article:{ description, publishedAt, source, title, url, urlToImage},i,activeArticle}) => {
   const classes=useStyles();
+  const[eref,setref]=useState([]);
+  const scrollToRef=(ref)=>window.scroll(0,ref.current.offsetTop-53);
+
+  useEffect(()=>{
+    setref((refs)=>Array(30).fill().map((_,j)=> refs[j] || createRef() ));
+    },[]);
+    useEffect(()=>{
+      if(i===activeArticle && eref[activeArticle]){
+        scrollToRef(eref[activeArticle]);
+      }
+    },[i,activeArticle,eref])
+    const open =()=>{
+      window.open(url,'_blank');
+    }
   return (
-   <Card className={classes.card} style={{background:"transparent"}}>
+   <Card ref={eref[i]} className={classNames(classes.card,activeArticle === i ? classes.active : null)} style={{background:"transparent"}}>
     <CardActionArea href={url} target="_blank">
       <CardMedia className={classes.media}
       image={urlToImage || 'https://cdn3.vectorstock.com/i/1000x1000/14/82/news-banner-vector-18471482.jpg'}/>
@@ -14,14 +30,16 @@ const NewsCard = ({article:{ description, publishedAt, source, title, url, urlTo
       </div>
       <Typography gutterBottom variant='h5' className={classes.title}>{title}</Typography>
       <CardContent>
-        <Typography variant='body2' color='lighgray' className={classes.description} component="p" fontFamily="Helvetica Neue">
+        <Typography variant='body2' className={classes.description} component="p" fontFamily="Helvetica Neue">
           {description}
         </Typography>
       </CardContent>
     </CardActionArea>
     <CardActions className={classes.cardActions}>
-      <Button size='small' color="primary" className={classes.button}>Learn More</Button>
-      <Typography variant='h5' color="white">{i+1}</Typography>
+      <Button size='small' color="primary" className={classes.button} onClick={open}>
+      Learn More
+      </Button>
+      <Typography variant='h5' className={classes.index}>{i+1}</Typography>
     </CardActions>
    </Card>
   )

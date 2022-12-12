@@ -18,8 +18,8 @@ const Lotties=()=>{
           <div className={classes.lottie}> 
             <Lottie 
               options={defaultOptions}
-              height={350}
-              width={350}
+              height={380}
+              width={380}
             />
           </div>
         );
